@@ -1,0 +1,9 @@
+desc "SISNE  3.30 (HDD 32MB)" hd0 "HD/hd32_SISNE330.img" chs0 940,4,17 boot hd0
+desc "MS-DOS 3.31 (HDD 32MB)" hd0 "HD/hd32_DOS331.img" boot hd0
+desc "MS-DOS 4.01 (HDD 64MB)" hd0 "HD/hd64_DOS401_286.img" boot hd0
+desc "MS-DOS 5.00 (HDD 96MB)" hd0 "HD/hd96_DOS500_286.img" boot hd0
+desc "MS-DOS 6.20 (HDD 96MB)" hd0 "HD/hd96_DOS620_286.img" boot hd0
+desc "GEM 3.13 (HDD 8MB)" hd0 "HD/hd8_GEM31.img" boot hd0
+desc "GEOS 2.0 (HDD 20MB)" hd0 "HD/hd20_GEOS20.img" boot hd0
+desc "Windows 3.0 Hercules (HDD 20MB)" hd0 "HD/hd20_WINHERC.img" boot hd0
+desc "CP/M 86 + Turbo Pascal 3 (floppy 1.44MB)" fd0 "DISK/floppy_CPM86.img" boot fd0
