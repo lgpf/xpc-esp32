@@ -4,6 +4,8 @@
 
 It is built on top of [FabGL](http://www.fabgl.com)'s **PCEmulator** by Fabrizio Di Vittorio, extended and fixed during many evenings of testing real software on real hardware.
 
+![XPC setup menu](docs/setup_menu.jpg)
+
 > Companion project: **[xpc-minimodem](https://github.com/lgpf/xpc-minimodem)** — a WeMos D1 mini WiFi modem that plugs straight into the TTGO mouse port and becomes COM1, with dial tones and handshake sounds.
 
 ---
@@ -47,6 +49,13 @@ From there it grew into a small, self-contained retro PC: pick the machine profi
 - Optional `.chs` file next to an HD image to force its geometry.
 - Setup menu with per-item help (`Ctrl+Alt+Up` or `Alt+PrintScreen`), settings saved in flash.
 
+<p>
+<img src="docs/hd_manager.jpg" width="49%" alt="Hard disk manager">
+<img src="docs/bbs_telix.jpg" width="49%" alt="Telix on a BBS through the mini modem">
+</p>
+
+*Hard disk manager (green monitor) and Telix connected to a BBS through the mini modem.*
+
 ## Tested software
 
 | Category | Titles |
@@ -74,6 +83,16 @@ Known limitations: Digger's death "funeral march" is shortened, Arkanoid II runs
    esptool.py --chip esp32 --port COM9 --baud 921600 write_flash 0x0 bin/merged_0x0.bin
    ```
    To update later, only `bin/firmware.bin` at **0x10000** is needed.
+
+   **With Espressif's Flash Download Tool (Windows):**
+   1. Run `flash_download_tool_x.x.x.exe`, choose **ChipType: ESP32**, **WorkMode: Develop**, **LoadMode: UART**.
+   2. In the first line, tick the box, pick `bin/merged_0x0.bin` and type **0x0** in the address field (`@ 0x0`).
+   3. **SPI SPEED: 40MHz**, **SPI MODE: DIO**, leave *DoNotChgBin* ticked.
+   4. Select the board's **COM** port and **BAUD 921600** (use 460800 if it fails).
+   5. First time only: click **ERASE** and wait for *FINISH*.
+   6. Click **START** and wait for *FINISH*, then press the board's reset button (or unplug and plug it back).
+
+   To update later: one line only, `bin/firmware.bin` **@ 0x10000**, no ERASE (the settings saved in flash are kept).
 3. Prepare the SD card:
    ```
    \mconfs.txt       hard disk descriptions (see sdcard/mconfs.txt)
